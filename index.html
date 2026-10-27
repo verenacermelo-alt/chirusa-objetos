@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="es-AR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>the chirusa! OBJECT[O]S | Lámparas de diseño</title>
+<meta name="description" content="Lámparas de diseño con color, hechas a mano en Mar del Plata.">
+<meta property="og:title" content="the chirusa! OBJECT[O]S">
+<meta property="og:description" content="Lámparas de diseño con color.">
+<meta property="og:image" content="logo-chirusa.jpg">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23ff3d7f'/%3E%3Ccircle cx='50' cy='52' r='20' fill='%23ffd23f'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+<style>
+@property --lc{syntax:'<color>';inherits:true;initial-value:#ffd23f}
+:root{transition:--lc .9s ease;--lc:#ffd23f;--noche:#0c0a14;--rosa:#ff3d7f;--ambar:#ffb300;--teal:#14b8a6;--violeta:#6d4cff;--crema:#fff4e2;--tinta:#1b1424;--luz:0}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:'Inter',system-ui,sans-serif;background:var(--crema);color:var(--tinta);line-height:1.5}
+a{color:inherit}
+.wrap{max-width:1100px;margin:0 auto;padding:0 1.5rem}
+h1,h2,h3{font-family:'Fredoka',sans-serif;font-weight:600;line-height:1;letter-spacing:-.02em;margin:0 0 1.25rem}
+h2{font-size:clamp(2.2rem,6vw,4.2rem)}
+p{max-width:34em;margin:0 0 1rem;font-size:1.1rem}
+.btn{display:inline-block;font:600 1rem 'Fredoka',sans-serif;padding:14px 30px;border-radius:40px;border:2px solid currentColor;text-decoration:none;cursor:pointer;background:transparent;color:inherit}
+.btn.fill{background:var(--rosa);border-color:var(--rosa);color:#fff}
+.btn:focus-visible,summary:focus-visible,a:focus-visible{outline:3px solid var(--ambar);outline-offset:3px}
+
+/* ---------- ESCENA: la lámpara se prende al bajar ---------- */
+.escena{height:320vh;background:var(--noche);position:relative}
+.sticky{background:var(--noche);position:sticky;top:0;height:100vh;overflow:hidden;display:flex;flex-direction:column;align-items:center}
+.glow{position:absolute;inset:0;opacity:var(--luz);pointer-events:none;
+ background:radial-gradient(circle at 50% 50%,color-mix(in srgb,var(--lc) 70%,transparent) 0,color-mix(in srgb,var(--lc) 28%,transparent) 38%,transparent 72%)}
+nav{position:relative;z-index:3;width:100%;display:flex;justify-content:space-between;align-items:center;padding:1.25rem 1.5rem;max-width:1100px}
+.logo img{display:block;height:3.4rem;width:auto}
+/* el logo es negro sobre blanco: lo invertimos y "mezclamos" para que el fondo desaparezca */
+.logo-noche{opacity:calc(.6 + var(--luz)*.4)}
+.nav-r{color:#fff;font:600 1rem 'Fredoka',sans-serif;text-decoration:none;border:2px solid #fff;border-radius:40px;padding:8px 22px;mix-blend-mode:normal}
+.lampara{position:relative;z-index:2;width:min(76vw,360px);margin-top:1rem}
+.lampara svg{width:100%;height:auto;display:block;overflow:visible}
+.fa{fill:#2a2733}.fb{fill:#1d1b26}.on{fill:var(--lc);opacity:var(--luz)}.halo{opacity:var(--luz)}.verde-l{fill:#1f7a3a;stroke:#14522a;stroke-width:2}
+.frases{position:relative;z-index:2;text-align:center;height:7rem;width:100%;margin-top:1rem}
+.frases h1{position:absolute;left:0;right:0;margin:0;padding:0 1.5rem;font-size:clamp(2rem,6.5vw,4.4rem);color:#fff;transition:opacity .2s}
+#f1{opacity:calc(1 - var(--luz)*3)}
+#f2{opacity:calc(var(--luz)*3 - 2)}
+.pista{position:absolute;bottom:1.5rem;z-index:2;color:#fff;font:500 1rem 'Fredoka',sans-serif;opacity:calc(.8 - var(--luz)*4);letter-spacing:.04em}
+
+/* ---------- FRASES ---------- */
+.frase{padding:6rem 0}
+.frase h2{max-width:12em;margin:0}
+.rosa{background:var(--rosa);color:#fff}
+.violeta{background:var(--violeta);color:#fff}
+.ambar{background:var(--ambar)}
+
+/* ---------- VIDEOS ---------- */
+.videos{padding:5rem 0}
+.grilla{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.25rem;margin-top:2rem}
+.video{aspect-ratio:4/5;border-radius:28px;overflow:hidden;position:relative;display:flex;align-items:flex-end}
+.video:nth-child(1){background:linear-gradient(160deg,var(--rosa),var(--ambar))}
+.video:nth-child(2){background:linear-gradient(160deg,var(--violeta),var(--rosa))}
+.video:nth-child(3){background:linear-gradient(160deg,var(--teal),var(--violeta))}
+.video video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.video span{position:relative;color:#fff;font:600 1.1rem 'Fredoka',sans-serif;padding:1rem 1.25rem}
+
+/* ---------- PEDIR + DUDAS ---------- */
+.pedir{background:var(--noche);color:var(--crema);padding:5rem 0}
+.pedir .logo-pie{height:4rem;width:auto;display:block;margin-bottom:2rem}
+.dudas{padding:4rem 0}
+details{border-top:2px solid var(--tinta);padding:1rem 0}
+details:last-of-type{border-bottom:2px solid var(--tinta)}
+summary{font:600 1.2rem 'Fredoka',sans-serif;cursor:pointer}
+details p{margin:.8rem 0 0}
+footer{padding:2rem 0;display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;font-weight:600}
+
+@media (max-width:760px){.grilla{grid-template-columns:1fr}.logo img{height:2.8rem}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+.video-wide{border-radius:28px;overflow:hidden;margin:2rem 0 0;background:var(--noche)}
+.video-wide video{width:100%;display:block;aspect-ratio:16/9;object-fit:cover}
+</style>
+</head>
+<body>
+
+<!-- ESCENA 1: todo oscuro, se prende al bajar -->
+<section class="escena" id="escena" aria-label="Lámpara que se prende al bajar">
+  <div class="sticky">
+    <div class="glow"></div>
+    <nav>
+      <a class="logo" href="#" aria-label="the chirusa! OBJECT[O]S, inicio"><img class="logo-noche" src="logo-chirusa-blanco.png" alt="the chirusa! OBJECT[O]S"></a>
+      <a class="nav-r" href="#pedir">Pedir</a>
+    </nav>
+
+    <div class="lampara" aria-hidden="true">
+      <svg viewBox="0 0 320 300">
+        <defs>
+          <radialGradient id="halo"><stop offset="0" style="stop-color:var(--lc)" stop-opacity=".85"/><stop offset="1" style="stop-color:var(--lc)" stop-opacity="0"/></radialGradient>
+          <radialGradient id="interior" cx="50%" cy="55%" r="60%"><stop offset="0" stop-color="#fff" stop-opacity=".75"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
+        </defs>
+        <rect x="0" y="246" width="320" height="16" fill="#3a2a22"/>
+        <ellipse class="halo" cx="125" cy="248" rx="190" ry="34" fill="url(#halo)"/>
+        <!-- cubo: cara frontal y tapa -->
+        <rect class="fa" x="30" y="70" width="160" height="160" rx="3"/>
+        <rect class="on" x="30" y="70" width="160" height="160" rx="3"/>
+        <rect style="opacity:var(--luz)" x="30" y="70" width="160" height="160" fill="url(#interior)"/>
+        <polygon class="fb" points="30,70 60,46 220,46 190,70"/>
+        <polygon class="on" points="30,70 60,46 220,46 190,70"/>
+        <!-- pieza verde con borde ondulado -->
+        <path class="verde-l" d="M170 70 L220 46 L220 206 L190 230 C200 200 172 185 176 155 C180 125 148 105 170 70 Z"/>
+      </svg>
+    </div>
+
+    <div class="frases">
+      <!-- FRASES: cambiá estos textos cuando las tengas -->
+      <h1 id="f1">Apagada, es un objeto.</h1>
+      <h1 id="f2">Prendida, es otra cosa.</h1>
+    </div>
+    <div class="pista">Bajá para prender</div>
+  </div>
+</section>
+
+<!-- FRASE 1 -->
+<section class="frase rosa">
+  <div class="wrap"><h2>Lámparas que se mueren de ganas de tener color.</h2></div>
+</section>
+
+<!-- VIDEOS (reemplazá los src por tus archivos .mp4) -->
+<section class="videos" id="objetos">
+  <div class="wrap">
+    <h2>La lámpara, prendida</h2>
+    <p>Un cubo de luz con curvas verdes. Cambia de color según el ánimo.</p>
+    <figure class="video-wide">
+      <video src="video-lampara.mp4" poster="video-lampara-poster.jpg" muted loop playsinline autoplay preload="metadata" aria-label="La lámpara Chirusa cambiando de color"></video>
+    </figure>
+  </div>
+</section>
+
+<!-- FRASE 2 -->
+<section class="frase violeta">
+  <div class="wrap"><h2>Hacen luz. Y también hacen escena.</h2></div>
+</section>
+
+<!-- FRASE 3 -->
+<section class="frase ambar">
+  <div class="wrap"><h2>Para cualquier rincón que se quiera lucir.</h2></div>
+</section>
+
+<!-- PEDIR -->
+<section class="pedir" id="pedir">
+  <div class="wrap">
+    <img class="logo-pie" src="logo-chirusa-blanco.png" alt="the chirusa! OBJECT[O]S">
+    <h2>Pedí la tuya</h2>
+    <p>Escribinos por WhatsApp y te contamos modelos, colores y tiempos.</p>
+    <a class="btn fill" id="wa" target="_blank" rel="noopener">Escribir por WhatsApp</a>
+  </div>
+</section>
+
+<!-- DUDAS -->
+<section class="dudas">
+  <div class="wrap">
+    <h2>Dudas</h2>
+    <details><summary>¿Hacen envíos?</summary><p>Completar.</p></details>
+    <details><summary>¿Puedo elegir los colores?</summary><p>Completar.</p></details>
+    <details><summary>¿Cuánto tardan?</summary><p>Completar.</p></details>
+    <details><summary>¿Qué lamparita llevan?</summary><p>Completar.</p></details>
+  </div>
+</section>
+
+<div class="wrap"><footer><span>the chirusa! OBJECT[O]S · Mar del Plata</span><a id="ig" target="_blank" rel="noopener">Instagram</a></footer></div>
+
+<script>
+// ---- Completar estos datos ----
+const WA_NUMBER = '5492230000000';   // WhatsApp con código de país
+const IG_USER   = 'tu_cuenta_chirusa'; // usuario de Instagram
+// --------------------------------
+
+const $ = id => document.getElementById(id);
+$('wa').href = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent('Hola Chirusa, quiero consultar por una lámpara.')}`;
+$('ig').href = 'https://instagram.com/' + IG_USER;
+
+// ---- La luz se prende a medida que se baja la escena ----
+(function(){
+  const escena = $('escena');
+  const root = document.documentElement;
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches){ root.style.setProperty('--luz', 1); return; }
+  let pendiente = false;
+  function calcular(){
+    pendiente = false;
+    const total = escena.offsetHeight - innerHeight;
+    const p = Math.min(1, Math.max(0, (scrollY - escena.offsetTop) / total));
+    // la luz arranca a los ~15% y está al máximo a los ~75% del recorrido
+    const t = Math.min(1, Math.max(0, (p - .15) / .6));
+    root.style.setProperty('--luz', (t * t * (3 - 2 * t)).toFixed(3));
+    root.style.setProperty('--lc', p < .4 ? '#ffd23f' : p < .65 ? '#ff5fa2' : '#b36bff');
+  }
+  function pedir(){ if (!pendiente){ pendiente = true; requestAnimationFrame(calcular); } }
+  addEventListener('scroll', pedir, {passive:true});
+  addEventListener('resize', pedir);
+  calcular();
+})();
+</script>
+</body>
+</html>
+--
