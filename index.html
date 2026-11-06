@@ -8,126 +8,151 @@
 <meta property="og:title" content="the chirusa! OBJECT[O]S">
 <meta property="og:description" content="Lámparas de diseño con color.">
 <meta property="og:image" content="logo-chirusa.jpg">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23ff3d7f'/%3E%3Ccircle cx='50' cy='52' r='20' fill='%23ffd23f'/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23d63a1f'/%3E%3Ccircle cx='50' cy='52' r='20' fill='%23e8b012'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100,800;125,800&family=Caveat:wght@600&family=Inter:wght@400;600&display=swap" rel="stylesheet">
 <style>
-@property --lc{syntax:'<color>';inherits:true;initial-value:#ffd23f}
-:root{transition:--lc .9s ease;--lc:#ffd23f;--noche:#0c0a14;--rosa:#ff3d7f;--ambar:#ffb300;--teal:#14b8a6;--violeta:#6d4cff;--crema:#fff4e2;--tinta:#1b1424;--luz:0}
+:root{--crema:#efe9dc;--rojo:#d63a1f;--azul:#1f4db0;--amarillo:#e8b012;--tinta:#1d1a17}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{margin:0;font-family:'Inter',system-ui,sans-serif;background:var(--crema);color:var(--tinta);line-height:1.5}
 a{color:inherit}
 .wrap{max-width:1100px;margin:0 auto;padding:0 1.5rem}
-h1,h2,h3{font-family:'Fredoka',sans-serif;font-weight:600;line-height:1;letter-spacing:-.02em;margin:0 0 1.25rem}
-h2{font-size:clamp(2.2rem,6vw,4.2rem)}
+h1,h2,h3{font-family:'Archivo',sans-serif;font-weight:800;font-stretch:112%;text-transform:uppercase;line-height:1.02;letter-spacing:-.01em;margin:0 0 1.25rem}
+h2{font-size:clamp(2rem,5.5vw,3.8rem)}
 p{max-width:34em;margin:0 0 1rem;font-size:1.1rem}
-.btn{display:inline-block;font:600 1rem 'Fredoka',sans-serif;padding:14px 30px;border-radius:40px;border:2px solid currentColor;text-decoration:none;cursor:pointer;background:transparent;color:inherit}
-.btn.fill{background:var(--rosa);border-color:var(--rosa);color:#fff}
-.btn:focus-visible,summary:focus-visible,a:focus-visible{outline:3px solid var(--ambar);outline-offset:3px}
+.btn{display:inline-block;font:800 1rem 'Archivo',sans-serif;text-transform:uppercase;letter-spacing:.02em;padding:14px 30px;border-radius:40px;border:2px solid currentColor;text-decoration:none;cursor:pointer;background:transparent;color:inherit}
+.btn.fill{background:var(--amarillo);border-color:var(--amarillo);color:var(--tinta)}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var(--azul);outline-offset:3px}
 
-/* ---------- ESCENA: la lámpara se prende al bajar ---------- */
-.escena{height:320vh;background:var(--noche);position:relative}
-.sticky{background:var(--noche);position:sticky;top:0;height:100vh;overflow:hidden;display:flex;flex-direction:column;align-items:center}
-.glow{position:absolute;inset:0;opacity:var(--luz);pointer-events:none;
- background:radial-gradient(circle at 50% 50%,color-mix(in srgb,var(--lc) 70%,transparent) 0,color-mix(in srgb,var(--lc) 28%,transparent) 38%,transparent 72%)}
-nav{position:relative;z-index:3;width:100%;display:flex;justify-content:space-between;align-items:center;padding:1.25rem 1.5rem;max-width:1100px}
-.logo img{display:block;height:3.4rem;width:auto}
-/* el logo es negro sobre blanco: lo invertimos y "mezclamos" para que el fondo desaparezca */
-.logo-noche{opacity:calc(.6 + var(--luz)*.4)}
-.nav-r{color:#fff;font:600 1rem 'Fredoka',sans-serif;text-decoration:none;border:2px solid #fff;border-radius:40px;padding:8px 22px;mix-blend-mode:normal}
-.lampara{position:relative;z-index:2;width:min(76vw,360px);margin-top:1rem}
-.lampara svg{width:100%;height:auto;display:block;overflow:visible}
-.fa{fill:#2a2733}.fb{fill:#1d1b26}.on{fill:var(--lc);opacity:var(--luz)}.halo{opacity:var(--luz)}.verde-l{fill:#1f7a3a;stroke:#14522a;stroke-width:2}
-.frases{position:relative;z-index:2;text-align:center;height:7rem;width:100%;margin-top:1rem}
-.frases h1{position:absolute;left:0;right:0;margin:0;padding:0 1.5rem;font-size:clamp(2rem,6.5vw,4.4rem);color:#fff;transition:opacity .2s}
-#f1{opacity:calc(1 - var(--luz)*3)}
-#f2{opacity:calc(var(--luz)*3 - 2)}
-.pista{position:absolute;bottom:1.5rem;z-index:2;color:#fff;font:500 1rem 'Fredoka',sans-serif;opacity:calc(.8 - var(--luz)*4);letter-spacing:.04em}
+/* ---------- 1. PRESENTACIÓN ---------- */
+nav{display:flex;justify-content:space-between;align-items:center;padding:1.25rem 0}
+.logo img{display:block;height:3.2rem;width:auto;mix-blend-mode:multiply}
+.nav-r{font:800 .95rem 'Archivo',sans-serif;text-transform:uppercase;text-decoration:none;border:2px solid var(--tinta);border-radius:40px;padding:8px 22px}
+.ilus{display:grid;grid-template-columns:1fr 1fr;gap:2rem;padding:1rem 0 3rem}
+.ilus svg{width:100%;height:auto;display:block;overflow:visible}
+.ilus .t{font:600 19px 'Caveat',cursive;fill:var(--tinta);text-anchor:middle}
+.titulo{background:var(--rojo);color:var(--crema);padding:4.5rem 0}
+.titulo h1{font-size:clamp(2.4rem,8vw,6rem);max-width:10em;margin:0}
+
+/* ---------- 2. SIMULADOR ---------- */
+.armar{padding:5rem 0}
+.tabs{display:flex;gap:.75rem;margin:1.5rem 0}
+.tab{font:800 1rem 'Archivo',sans-serif;text-transform:uppercase;padding:10px 24px;border-radius:40px;border:2px solid var(--tinta);background:transparent;color:var(--tinta);cursor:pointer}
+.tab[aria-pressed=true]{background:var(--tinta);color:var(--crema)}
+.sim{background:#faf6ec;border:2px solid var(--tinta);border-radius:28px;padding:1.5rem;max-width:640px}
+.sim-h{display:flex;flex-wrap:wrap;gap:.5rem 1rem;align-items:baseline;margin-bottom:1rem}
+.sim-h b{font:800 1rem 'Archivo',sans-serif;text-transform:uppercase}
+.sim svg{width:100%;height:auto;display:block;border-radius:18px}
+.ctl{display:flex;flex-wrap:wrap;gap:.75rem 1.5rem;align-items:center;margin-top:1.25rem}
+.ctl>span{font-weight:600;font-size:.9rem}
+.sw{display:flex;gap:.6rem}
+.sw button{width:34px;height:34px;border-radius:50%;border:3px solid transparent;cursor:pointer;box-shadow:0 0 0 2px var(--tinta) inset}
+.sw button[aria-pressed=true]{border-color:var(--crema);outline:3px solid var(--tinta)}
+.seg{display:flex;gap:.5rem}
+.seg button{font:600 .95rem 'Inter',sans-serif;padding:9px 18px;border-radius:12px;border:2px solid var(--tinta);background:transparent;color:var(--tinta);cursor:pointer}
+.seg button[aria-pressed=true]{background:var(--amarillo)}
+.nota{font-size:.9rem;font-style:italic;margin-top:1rem}
 
 /* ---------- FRASES ---------- */
-.frase{padding:6rem 0}
+.frase{padding:5rem 0}
 .frase h2{max-width:12em;margin:0}
-.rosa{background:var(--rosa);color:#fff}
-.violeta{background:var(--violeta);color:#fff}
-.ambar{background:var(--ambar)}
+.f-rojo{background:var(--rojo);color:var(--crema)}
+.f-azul{background:var(--azul);color:var(--crema)}
+.f-amarillo{background:var(--amarillo);color:var(--tinta)}
 
-/* ---------- VIDEOS ---------- */
+/* ---------- VIDEO ---------- */
 .videos{padding:5rem 0}
-.grilla{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.25rem;margin-top:2rem}
-.video{aspect-ratio:4/5;border-radius:28px;overflow:hidden;position:relative;display:flex;align-items:flex-end}
-.video:nth-child(1){background:linear-gradient(160deg,var(--rosa),var(--ambar))}
-.video:nth-child(2){background:linear-gradient(160deg,var(--violeta),var(--rosa))}
-.video:nth-child(3){background:linear-gradient(160deg,var(--teal),var(--violeta))}
-.video video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.video span{position:relative;color:#fff;font:600 1.1rem 'Fredoka',sans-serif;padding:1rem 1.25rem}
+.video-wide{border-radius:28px;overflow:hidden;margin:2rem 0 0;background:var(--tinta)}
+.video-wide video{width:100%;display:block;aspect-ratio:16/9;object-fit:cover}
 
 /* ---------- PEDIR + DUDAS ---------- */
-.pedir{background:var(--noche);color:var(--crema);padding:5rem 0}
+.pedir{background:var(--azul);color:var(--crema);padding:5rem 0}
 .pedir .logo-pie{height:4rem;width:auto;display:block;margin-bottom:2rem}
 .dudas{padding:4rem 0}
 details{border-top:2px solid var(--tinta);padding:1rem 0}
 details:last-of-type{border-bottom:2px solid var(--tinta)}
-summary{font:600 1.2rem 'Fredoka',sans-serif;cursor:pointer}
+summary{font:800 1.1rem 'Archivo',sans-serif;text-transform:uppercase;cursor:pointer}
 details p{margin:.8rem 0 0}
 footer{padding:2rem 0;display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;font-weight:600}
-
-@media (max-width:760px){.grilla{grid-template-columns:1fr}.logo img{height:2.8rem}}
+@media (max-width:760px){.ilus{grid-template-columns:1fr}.logo img{height:2.6rem}}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
-.video-wide{border-radius:28px;overflow:hidden;margin:2rem 0 0;background:var(--noche)}
-.video-wide video{width:100%;display:block;aspect-ratio:16/9;object-fit:cover}
 </style>
 </head>
 <body>
 
-<!-- ESCENA 1: todo oscuro, se prende al bajar -->
-<section class="escena" id="escena" aria-label="Lámpara que se prende al bajar">
-  <div class="sticky">
-    <div class="glow"></div>
+<!-- 1. PRESENTACIÓN -->
+<header>
+  <div class="wrap">
     <nav>
-      <a class="logo" href="#" aria-label="the chirusa! OBJECT[O]S, inicio"><img class="logo-noche" src="logo-chirusa-blanco.png" alt="the chirusa! OBJECT[O]S"></a>
+      <a class="logo" href="#" aria-label="the chirusa! OBJECT[O]S, inicio"><img src="logo-chirusa.jpg" alt="the chirusa! OBJECT[O]S"></a>
       <a class="nav-r" href="#pedir">Pedir</a>
     </nav>
-
-    <div class="lampara" aria-hidden="true">
-      <svg viewBox="0 0 320 300">
-        <defs>
-          <radialGradient id="halo"><stop offset="0" style="stop-color:var(--lc)" stop-opacity=".85"/><stop offset="1" style="stop-color:var(--lc)" stop-opacity="0"/></radialGradient>
-          <radialGradient id="interior" cx="50%" cy="55%" r="60%"><stop offset="0" stop-color="#fff" stop-opacity=".75"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
-        </defs>
-        <rect x="0" y="246" width="320" height="16" fill="#3a2a22"/>
-        <ellipse class="halo" cx="125" cy="248" rx="190" ry="34" fill="url(#halo)"/>
-        <!-- cubo: cara frontal y tapa -->
-        <rect class="fa" x="30" y="70" width="160" height="160" rx="3"/>
-        <rect class="on" x="30" y="70" width="160" height="160" rx="3"/>
-        <rect style="opacity:var(--luz)" x="30" y="70" width="160" height="160" fill="url(#interior)"/>
-        <polygon class="fb" points="30,70 60,46 220,46 190,70"/>
-        <polygon class="on" points="30,70 60,46 220,46 190,70"/>
-        <!-- pieza verde con borde ondulado -->
-        <path class="verde-l" d="M170 70 L220 46 L220 206 L190 230 C200 200 172 185 176 155 C180 125 148 105 170 70 Z"/>
+    <div class="ilus">
+      <!-- THE GLADYS -->
+      <svg viewBox="0 0 300 300" role="img" aria-label="Ilustración de The Gladys: A little luz, a lot of actitud">
+        <polygon points="45,150 115,35 185,150" fill="#e8b012"/>
+        <rect x="95" y="65" width="125" height="125" fill="none" stroke="#1d1a17" stroke-width="2"/>
+        <path d="M140 205C128 175 168 165 152 135C142 110 172 100 186 106C192 84 216 86 222 74V205Z" fill="#d63a1f"/>
+        <path d="M222 190C250 188 255 214 285 206" fill="none" stroke="#1d1a17" stroke-width="2"/>
+        <path d="M150 205C160 232 120 222 100 232" fill="none" stroke="#1d1a17" stroke-width="2"/>
+        <ellipse cx="130" cy="252" rx="108" ry="30" fill="#efe9dc" stroke="#1d1a17" stroke-width="2" transform="rotate(-3 130 252)"/>
+        <text class="t" x="130" y="248">A LITTLE LUZ,</text><text class="t" x="130" y="270">A LOT OF ACTITUD</text>
+      </svg>
+      <!-- THE ESTER -->
+      <svg viewBox="0 0 300 300" role="img" aria-label="Ilustración de The Ester: Not just a lamparita">
+        <polygon points="90,25 210,25 150,95" fill="#e8b012"/>
+        <circle cx="150" cy="110" r="70" fill="none" stroke="#1d1a17" stroke-width="2"/>
+        <path d="M80 112C100 96 110 128 130 112C150 96 160 128 180 112C200 96 210 128 220 112A70 70 0 0 1 80 112Z" fill="#1f4db0"/>
+        <path d="M80 130C40 120 20 165 5 150" fill="none" stroke="#1d1a17" stroke-width="2"/>
+        <path d="M185 178C215 200 240 205 262 215" fill="none" stroke="#1d1a17" stroke-width="2"/>
+        <ellipse cx="170" cy="252" rx="100" ry="30" fill="#efe9dc" stroke="#1d1a17" stroke-width="2" transform="rotate(-3 170 252)"/>
+        <text class="t" x="170" y="248">NOT JUST</text><text class="t" x="170" y="270">A LAMPARITA</text>
       </svg>
     </div>
+  </div>
+  <div class="titulo"><div class="wrap"><h1>It's just a cuestión de actitud</h1></div></div>
+</header>
 
-    <div class="frases">
-      <!-- FRASES: cambiá estos textos cuando las tengas -->
-      <h1 id="f1">Apagada, es un objeto.</h1>
-      <h1 id="f2">Prendida, es otra cosa.</h1>
+<!-- 2. SIMULADOR INTERACTIVO -->
+<section class="armar" id="objetos">
+  <div class="wrap">
+    <h2>Probala a tu manera</h2>
+    <p>Elegí el modelo, cambiá el color de la carcasa, prendé la luz y fijate cómo queda en la mesa o en la pared.</p>
+    <div class="tabs" id="tabs">
+      <button class="tab" data-m="gladys" aria-pressed="true">The Gladys</button>
+      <button class="tab" data-m="ester" aria-pressed="false">The Ester</button>
     </div>
-    <div class="pista">Bajá para prender</div>
+    <div class="sim">
+      <div class="sim-h"><b id="nom"></b><span id="col"></span></div>
+      <svg id="esc" viewBox="0 0 400 320" role="img" aria-label="Simulador de la lámpara"></svg>
+      <div class="ctl">
+        <span>Carcasa</span>
+        <div class="sw" id="sw"></div>
+      </div>
+      <div class="ctl">
+        <div class="seg"><button id="luz" aria-pressed="true"></button></div>
+        <div class="seg" id="pos">
+          <button data-p="mesa" aria-pressed="true">En mesa</button>
+          <button data-p="pared" aria-pressed="false">En pared</button>
+        </div>
+      </div>
+      <p class="nota">Simulador interactivo: probá cambiar el color de la carcasa, encender la luz o montarla en la pared con imanes.</p>
+    </div>
   </div>
 </section>
 
 <!-- FRASE 1 -->
-<section class="frase rosa">
+<section class="frase f-rojo">
   <div class="wrap"><h2>Lámparas que se mueren de ganas de tener color.</h2></div>
 </section>
 
-<!-- VIDEOS (reemplazá los src por tus archivos .mp4) -->
-<section class="videos" id="objetos">
+<!-- VIDEO (reemplazá el src por tu archivo .mp4) -->
+<section class="videos">
   <div class="wrap">
     <h2>La lámpara, prendida</h2>
-    <p>Un cubo de luz con curvas verdes. Cambia de color según el ánimo.</p>
+    <p>Un cubo de luz con curvas. Cambia de color según el ánimo.</p>
     <figure class="video-wide">
       <video src="video-lampara.mp4" poster="video-lampara-poster.jpg" muted loop playsinline autoplay preload="metadata" aria-label="La lámpara Chirusa cambiando de color"></video>
     </figure>
@@ -135,12 +160,12 @@ footer{padding:2rem 0;display:flex;justify-content:space-between;flex-wrap:wrap;
 </section>
 
 <!-- FRASE 2 -->
-<section class="frase violeta">
+<section class="frase f-azul">
   <div class="wrap"><h2>Hacen luz. Y también hacen escena.</h2></div>
 </section>
 
 <!-- FRASE 3 -->
-<section class="frase ambar">
+<section class="frase f-amarillo">
   <div class="wrap"><h2>Para cualquier rincón que se quiera lucir.</h2></div>
 </section>
 
@@ -169,35 +194,56 @@ footer{padding:2rem 0;display:flex;justify-content:space-between;flex-wrap:wrap;
 
 <script>
 // ---- Completar estos datos ----
-const WA_NUMBER = '5492230000000';   // WhatsApp con código de país
+const WA_NUMBER = '5492230000000';     // WhatsApp con código de país
 const IG_USER   = 'tu_cuenta_chirusa'; // usuario de Instagram
 // --------------------------------
-
 const $ = id => document.getElementById(id);
 $('wa').href = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent('Hola Chirusa, quiero consultar por una lámpara.')}`;
 $('ig').href = 'https://instagram.com/' + IG_USER;
 
-// ---- La luz se prende a medida que se baja la escena ----
-(function(){
-  const escena = $('escena');
-  const root = document.documentElement;
-  if (matchMedia('(prefers-reduced-motion: reduce)').matches){ root.style.setProperty('--luz', 1); return; }
-  let pendiente = false;
-  function calcular(){
-    pendiente = false;
-    const total = escena.offsetHeight - innerHeight;
-    const p = Math.min(1, Math.max(0, (scrollY - escena.offsetTop) / total));
-    // la luz arranca a los ~15% y está al máximo a los ~75% del recorrido
-    const t = Math.min(1, Math.max(0, (p - .15) / .6));
-    root.style.setProperty('--luz', (t * t * (3 - 2 * t)).toFixed(3));
-    root.style.setProperty('--lc', p < .4 ? '#ffd23f' : p < .65 ? '#ff5fa2' : '#b36bff');
+// ---- Simulador ----
+const COLORES = {rojo:['Rojo','#d63a1f'], azul:['Azul','#1f4db0'], amarillo:['Amarillo mostaza','#e8b012']};
+const MODELOS = {gladys:'The Gladys · Cúbica', ester:'The Ester · Cilíndrica'};
+const S = {m:'gladys', c:'rojo', on:true, p:'mesa'};
+
+function lampara(){
+  const sh = COLORES[S.c][1], on = S.on;
+  if (S.m === 'ester'){
+    return `<path d="M105 120V230A95 26 0 0 0 295 230V120Z" fill="${on?'#fff1b0':'#f4efe4'}"/>
+      <ellipse cx="200" cy="120" rx="95" ry="26" fill="${on?'#fffbe3':'#fffdf8'}"/>
+      <path d="M105 178C125 178 128 150 150 150C175 150 170 188 195 188C222 188 214 142 240 142C266 142 266 178 295 178V230A95 26 0 0 1 105 230Z" fill="${sh}"/>`;
   }
-  function pedir(){ if (!pendiente){ pendiente = true; requestAnimationFrame(calcular); } }
-  addEventListener('scroll', pedir, {passive:true});
-  addEventListener('resize', pedir);
-  calcular();
-})();
+  return `<polygon points="250,120 290,92 290,232 250,260" fill="${on?'#ffe48a':'#e3dccd'}"/>
+    <polygon points="110,120 150,92 290,92 250,120" fill="${on?'#fffbe3':'#fffdf8'}"/>
+    <rect x="110" y="120" width="140" height="140" fill="${on?'#fff3bd':'#f4efe4'}"/>
+    <path d="M110 120H172C196 134 160 164 180 190C198 214 166 236 190 260H110Z" fill="${sh}"/>`;
+}
+
+function dibujar(){
+  const pared = S.p === 'pared', ester = S.m === 'ester';
+  const cx = ester ? 200 : 195, cy = ester ? 165 : 175;
+  let o = `<defs><radialGradient id="g"><stop offset="0" stop-color="#ffd23f" stop-opacity=".75"/><stop offset="1" stop-color="#ffd23f" stop-opacity="0"/></radialGradient></defs>`;
+  o += `<rect width="400" height="320" fill="${pared?'#e9dfca':'#f3ead6'}"/>`;
+  if (!pared) o += `<rect y="258" width="400" height="62" fill="#b9824f"/><ellipse cx="200" cy="260" rx="105" ry="9" fill="#000" opacity=".25"/>`;
+  if (S.on) o += `<circle cx="${cx}" cy="${cy-(pared?25:0)}" r="${pared?190:165}" fill="url(#g)"/>`;
+  if (pared) o += `<rect x="40" y="40" width="1" height="1" fill="none"/><g transform="translate(0,-25)" style="filter:drop-shadow(8px 10px 7px rgba(0,0,0,.28))">${lampara()}</g>`;
+  else o += lampara();
+  $('esc').innerHTML = o;
+  $('nom').textContent = MODELOS[S.m];
+  $('col').textContent = COLORES[S.c][0];
+  $('luz').textContent = S.on ? 'Luz ON' : 'Luz OFF';
+  $('luz').setAttribute('aria-pressed', S.on);
+  document.querySelectorAll('#tabs button').forEach(b => b.setAttribute('aria-pressed', b.dataset.m === S.m));
+  document.querySelectorAll('#sw button').forEach(b => b.setAttribute('aria-pressed', b.dataset.c === S.c));
+  document.querySelectorAll('#pos button').forEach(b => b.setAttribute('aria-pressed', b.dataset.p === S.p));
+}
+
+$('sw').innerHTML = Object.entries(COLORES).map(([k,v]) => `<button data-c="${k}" style="background:${v[1]}" aria-label="Carcasa ${v[0]}" aria-pressed="false"></button>`).join('');
+$('tabs').onclick = e => { const b = e.target.closest('button'); if (b){ S.m = b.dataset.m; dibujar(); } };
+$('sw').onclick   = e => { const b = e.target.closest('button'); if (b){ S.c = b.dataset.c; dibujar(); } };
+$('pos').onclick  = e => { const b = e.target.closest('button'); if (b){ S.p = b.dataset.p; dibujar(); } };
+$('luz').onclick  = () => { S.on = !S.on; dibujar(); };
+dibujar();
 </script>
 </body>
 </html>
---
