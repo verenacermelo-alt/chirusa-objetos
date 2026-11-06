@@ -1,271 +1,267 @@
-<!DOCTYPE html>
-<html lang="es">
+<!doctype html>
+<html lang="es-AR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Chirusa - Lámparas con Actitud</title>
-    <style>
-        /* Tipografías:
-           Asegúrate de tener la fuente "Agrandir" en sus distintas variantes (Wide Black Italic, Wide Light, Regular).
-           Si las tienes descargadas, deberás usar @font-face aquí para importarlas.
-           Por ahora, usaré Arial o sans-serif como alternativas temporales, pero dejaré indicada la familia 'Agrandir'.
-        */
-        @font-face {
-            font-family: 'AgrandirWideBlackItalic';
-            src: url('fonts/Agrandir-WideBlackItalic.otf') format('opentype'); /* Ajusta la ruta a tus archivos de fuente */
-            font-weight: 900;
-            font-style: italic;
-        }
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>the chirusa! OBJECT[O]S | Lámparas de diseño</title>
+<meta name="description" content="Lámparas de diseño con color, hechas a mano en Mar del Plata.">
+<meta property="og:title" content="the chirusa! OBJECT[O]S">
+<meta property="og:description" content="A little luz, a lot of actitud.">
+<meta property="og:image" content="img/lamparas.webp">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23cd3319'/%3E%3Ccircle cx='50' cy='52' r='20' fill='%23e8a519'/%3E%3C/svg%3E">
+<style>
+@font-face{font-family:'Agrandir';src:url(fonts/agrandir-regular.otf) format('opentype');font-weight:400;font-display:swap}
+@font-face{font-family:'Agrandir';src:url(fonts/agrandir-wide-bold.ttf) format('truetype');font-weight:700;font-display:swap}
+@font-face{font-family:'Agrandir';src:url(fonts/agrandir-heavy.otf) format('opentype');font-weight:800;font-display:swap}
+@font-face{font-family:'Pumpkin Cheesecake';src:url(fonts/pumpkin-cheesecake.otf) format('opentype');font-display:swap}
+:root{--crema:#fcf2e8;--rojo:#cd3319;--teal:#1d4b62;--ocre:#e8a519;--num:#e6b211;--barra:#333;--tinta:#2a2320;--pad:clamp(1rem,4vw,1.5rem)}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;font-family:'Agrandir',system-ui,sans-serif;font-weight:400;background:var(--crema);color:var(--tinta);line-height:1.45;overflow-x:hidden}
+img,svg,video{max-width:100%}
+a{color:inherit}
+.wrap{max-width:1000px;margin:0 auto;padding:0 var(--pad)}
+h1,h2,h3{font-family:'Agrandir',sans-serif;font-weight:800;line-height:1;margin:0;overflow-wrap:anywhere}
+h2{font-size:clamp(1.7rem,5.5vw,3.2rem);text-transform:uppercase}
+p{margin:0 0 1rem}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var(--teal);outline-offset:3px}
+.sr{position:absolute;left:-9999px}
 
-        @font-face {
-            font-family: 'AgrandirWideLight';
-            src: url('fonts/Agrandir-WideLight.otf') format('opentype');
-            font-weight: 300;
-            font-style: normal;
-        }
+/* barra */
+.barra{background:var(--barra);color:#fff}
+.barra .wrap{display:flex;justify-content:space-between;align-items:center;min-height:clamp(3.4rem,10vw,4.6rem);max-width:1200px}
+.barra img{display:block;height:clamp(2rem,7vw,3rem);width:auto}
+.pill{display:inline-flex;align-items:center;min-height:40px;background:var(--rojo);color:var(--crema);font:800 .85rem 'Agrandir',sans-serif;text-transform:uppercase;text-decoration:none;padding:6px 22px;border-radius:30px}
 
-        @font-face {
-            font-family: 'AgrandirRegular';
-            src: url('fonts/Agrandir-Regular.otf') format('opentype');
-            font-weight: normal;
-            font-style: normal;
-        }
+/* hero */
+.hero{position:relative;background:var(--crema);overflow:hidden;text-align:center;padding-top:clamp(1.2rem,5vw,3rem)}
+.mark{position:absolute;top:0;left:50%;transform:translateX(-50%);font:800 clamp(5rem,26vw,17rem)/.9 'Agrandir',sans-serif;color:#f7e4d4;white-space:nowrap;z-index:0;user-select:none}
+.hero h1{position:relative;z-index:1;color:var(--rojo);font-size:clamp(2.4rem,12.5vw,8.5rem);line-height:.85;white-space:nowrap;text-transform:uppercase}
+.hero h1 span{display:block;font-size:.3em;line-height:1.15}
+.lamps{position:relative;z-index:2;width:min(64%,640px);margin:calc(-1*clamp(1rem,6vw,4.2rem)) auto 0}
+.lamps img{display:block;width:100%;height:auto;clip-path:inset(0 0 3% 0)}
+.bub{position:absolute;z-index:3;max-width:27%;font:400 clamp(.74rem,2.6vw,1.15rem)/1.1 'Pumpkin Cheesecake',cursive;text-transform:uppercase;border:2px solid var(--tinta);border-radius:50%;padding:.7em 1em;transform:rotate(-8deg)}
+.bub svg{position:absolute;width:2em;height:auto;stroke:var(--tinta);fill:none;stroke-width:1.6}
+.bub.i{left:2%;top:48%}.bub.i svg{right:-2.2em;top:-.9em}
+.bub.d{right:2%;top:70%}.bub.d svg{left:.2em;top:-2em;transform:rotate(-70deg)}
 
+/* starter pack */
+.band{padding:clamp(1.6rem,5vw,2.6rem) var(--pad);text-align:center;color:var(--crema)}
+.band.teal{background:var(--teal)}.band.ocre{background:var(--ocre)}.band.rojo{background:var(--rojo)}
+.band h2{letter-spacing:.01em}
+.band small{display:block;margin-top:.5rem;font:700 clamp(.7rem,2.4vw,.9rem) 'Agrandir',sans-serif;text-transform:uppercase}
+.pack{padding:clamp(2rem,6vw,3.5rem) 0}
+.items{display:grid;grid-template-columns:1fr 1fr;gap:1.4rem 2rem;max-width:760px;margin:0 auto}
+.it{display:flex;gap:.8rem;align-items:flex-start;font-size:clamp(.78rem,2.3vw,.95rem)}
+.it b{display:block}
+.n{flex:none;width:clamp(2.2rem,7vw,2.9rem);aspect-ratio:1;border-radius:50%;background:var(--num);border:2px solid var(--tinta);display:grid;place-items:center;font:800 clamp(1.1rem,4vw,1.5rem) 'Agrandir',sans-serif}
+.precio{display:flex;flex-wrap:wrap;gap:1rem 1.5rem;justify-content:center;align-items:center;max-width:760px;margin:2rem auto}
+.precio p{margin:0;max-width:20em;color:var(--teal);font-weight:700;font-size:clamp(.85rem,2.5vw,1rem)}
+.tag{background:var(--ocre);border:2px solid var(--tinta);border-radius:10px;padding:.4rem 1.2rem;font:800 clamp(1.4rem,5vw,2rem) 'Agrandir',sans-serif;}
+.cta{text-align:center}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:52px;background:var(--rojo);color:var(--crema);border:3px solid #5b1308;border-radius:40px;box-shadow:0 5px 0 #5b1308;padding:10px 36px;font:800 clamp(.95rem,3vw,1.15rem) 'Agrandir',sans-serif;text-transform:uppercase;text-decoration:none}
+.btn:active{transform:translateY(3px);box-shadow:0 2px 0 #5b1308}
 
-        /* Colores extraídos de la imagen */
-        :root {
-            --color-rojo: #d52b1e;      /* Rojo de "ACTITUD" y botón principal */
-            --color-rojo-oscuro: #b01b10; /* Rojo más oscuro para el botón superior */
-            --color-azul-oscuro: #1d4d6c; /* Fondo sección STARTER PACK */
-            --color-azul-claro: #1449c2;  /* Azul de la lámpara The Ester */
-            --color-amarillo: #f4b41a;    /* Fondo precio y barra horizontal */
-            --color-fondo-claro: #fcf1e6; /* Fondo crema principal */
-            --color-fondo-oscuro: #2b2b2a; /* Fondo barra superior */
-            --color-texto-oscuro: #2b2b2a;
-            --color-blanco: #ffffff;
-        }
+/* tarjetas */
+.cards{display:grid;grid-template-columns:1fr 1fr;gap:clamp(1rem,4vw,3rem);max-width:760px;margin:0 auto;padding:0 var(--pad) clamp(2.5rem,7vw,4rem)}
+.card{text-align:center;font-size:clamp(.78rem,2.3vw,.95rem)}
+.card img{display:block;width:100%;aspect-ratio:1;object-fit:cover;border-radius:clamp(20px,6vw,36px);margin-bottom:1rem}
+.card h3{font-size:clamp(1.5rem,6vw,2.4rem);margin-bottom:.6rem;text-transform:uppercase}
+.card h3 small{font-size:.55em;margin-right:.15em}
+.card p{margin:0}
 
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: 'AgrandirRegular', Arial, sans-serif;
-            background-color: var(--color-fondo-claro);
-            color: var(--color-texto-oscuro);
-        }
+/* simulador */
+.armar{padding:clamp(2.5rem,7vw,4rem) 0;text-align:center}
+.armar h2{text-transform:none;font-size:clamp(1.7rem,5vw,2.6rem)}
+.armar .sub{font-size:clamp(.8rem,2.4vw,.95rem);margin:.6rem auto 1.2rem}
+.tabs{display:flex;justify-content:center;gap:.6rem;margin-bottom:1.2rem}
+.tab{min-height:44px;font:700 .9rem 'Agrandir',sans-serif;padding:8px 22px;border-radius:30px;border:2px solid var(--tinta);background:transparent;color:var(--tinta);cursor:pointer}
+.tab[aria-pressed=true]{background:var(--tinta);color:var(--crema)}
+.sim{max-width:640px;margin:0 auto;text-align:left;border:2px solid var(--tinta);border-radius:clamp(18px,4vw,28px);padding:clamp(1rem,3vw,1.5rem);background:#fffaf4}
+.sim-h{font:800 .9rem 'Agrandir',sans-serif;text-transform:uppercase;margin-bottom:.5rem}
+.sim-h span{font-family:'Agrandir',sans-serif;font-weight:500;text-transform:none}
+#esc{width:100%;height:auto;display:block}
+.ctl{display:flex;flex-wrap:wrap;gap:.6rem 1rem;align-items:center;margin-top:.9rem}
+.ctl>span{font-size:.85rem}
+.sw{display:flex;gap:.7rem}
+.sw button{width:40px;height:40px;border-radius:50%;border:3px solid #fffaf4;cursor:pointer;box-shadow:0 0 0 2px var(--tinta)}
+.sw button[aria-pressed=true]{outline:3px solid var(--tinta);outline-offset:2px}
+.seg{display:flex;flex-wrap:wrap;gap:.5rem}
+.seg button{min-height:42px;font:700 .85rem 'Agrandir',sans-serif;padding:6px 16px;border-radius:10px;border:1.5px solid var(--tinta);background:transparent;color:var(--tinta);cursor:pointer}
+.seg button[aria-pressed=true]{background:var(--ocre)}
+.nota{font-size:.75rem;text-align:center;margin:1rem 0 0}
 
-        /* Barra Superior */
-        .top-bar {
-            background-color: var(--color-fondo-oscuro);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px 40px;
-        }
+/* resto */
+.videos{padding:clamp(2.5rem,7vw,4rem) 0;text-align:center}
+.videos h2{margin-bottom:1rem}
+.video-wide{border-radius:clamp(18px,4vw,28px);overflow:hidden;margin:1.5rem 0 0;background:var(--tinta)}
+.video-wide video{width:100%;display:block;aspect-ratio:16/9;object-fit:cover}
+.pedir{background:var(--teal);color:var(--crema);padding:clamp(2.5rem,8vw,4.5rem) 0;text-align:center}
+.pedir h2{margin-bottom:1rem}
+.pedir p{max-width:28em;margin:0 auto 1.5rem}
+.dudas{padding:clamp(2.5rem,7vw,4rem) 0}
+.dudas h2{margin-bottom:1.5rem}
+details{border-top:2px solid var(--tinta);padding:1rem 0}
+details:last-of-type{border-bottom:2px solid var(--tinta)}
+summary{font:800 1rem 'Agrandir',sans-serif;text-transform:uppercase;cursor:pointer;min-height:32px}
+details p{margin:.8rem 0 0}
+footer{padding:1.5rem 0 2rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;font-weight:700;font-size:.9rem}
 
-        .logo {
-            /* Idealmente aquí usarías la imagen 'logo blanco.svg' */
-            height: 30px;
-        }
-
-        .btn-pedir {
-            background-color: var(--color-rojo-oscuro);
-            color: var(--color-blanco);
-            text-decoration: none;
-            padding: 8px 20px;
-            border-radius: 20px;
-            font-family: 'AgrandirWideBlackItalic', Arial, sans-serif;
-            font-size: 14px;
-            text-transform: uppercase;
-        }
-
-        /* Sección Hero (A LOT OF ACTITUD) */
-        .hero-section {
-            text-align: center;
-            padding: 40px 20px;
-            position: relative;
-        }
-
-        .hero-subtitle {
-            font-family: 'AgrandirWideBlackItalic', Arial, sans-serif;
-            color: var(--color-rojo);
-            font-size: 24px;
-            margin-bottom: -10px;
-        }
-
-        .hero-title {
-            font-family: 'AgrandirWideBlackItalic', Arial, sans-serif;
-            color: var(--color-rojo);
-            font-size: 80px;
-            margin: 0;
-            text-transform: uppercase;
-            letter-spacing: -2px;
-        }
-
-        .hero-images {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-top: 20px;
-        }
-
-        .hero-images img {
-            width: 250px;
-            height: auto;
-        }
-
-        /* Sección Starter Pack */
-        .starter-pack-section {
-            background-color: var(--color-azul-oscuro);
-            color: var(--color-blanco);
-            text-align: center;
-            padding: 30px 20px;
-        }
-
-        .starter-pack-title {
-            font-family: 'AgrandirWideLight', Arial, sans-serif;
-            font-size: 32px;
-            margin: 0;
-        }
-
-        .starter-pack-subtitle {
-            font-family: 'AgrandirRegular', Arial, sans-serif;
-            font-size: 14px;
-            letter-spacing: 1px;
-            margin-top: 5px;
-        }
-
-        .features-grid {
-            background-color: var(--color-fondo-claro);
-            padding: 40px 20px;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .feature-item {
-            display: flex;
-            align-items: flex-start;
-            text-align: left;
-        }
-
-        .feature-number {
-            background-color: var(--color-amarillo);
-            color: var(--color-texto-oscuro);
-            font-family: 'AgrandirWideBlackItalic', Arial, sans-serif;
-            font-size: 24px;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-right: 15px;
-            flex-shrink: 0;
-        }
-
-        .feature-text strong {
-            display: block;
-            margin-bottom: 5px;
-        }
-
-        /* Precio y CTA Principal */
-        .price-cta-container {
-            text-align: center;
-            padding: 20px;
-        }
-
-        .price-tag {
-            background-color: var(--color-amarillo);
-            display: inline-block;
-            padding: 10px 30px;
-            font-family: 'AgrandirWideBlackItalic', Arial, sans-serif;
-            font-size: 28px;
-            border-radius: 8px;
-            margin-bottom: 30px;
-        }
-
-        .btn-principal {
-            background-color: var(--color-rojo);
-            color: var(--color-blanco);
-            text-decoration: none;
-            padding: 15px 40px;
-            border-radius: 30px;
-            border: 2px solid var(--color-texto-oscuro);
-            font-family: 'AgrandirWideBlackItalic', Arial, sans-serif;
-            font-size: 18px;
-            display: inline-block;
-        }
-
-    </style>
+@media (max-width:560px){.seg button{flex:1 1 30%;padding:6px 10px}.tab{flex:1}.sim-h{font-size:.8rem}.items,.cards{grid-template-columns:1fr}.cards{max-width:340px}.bub{max-width:30%}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
 </head>
 <body>
 
-    <!-- BARRA SUPERIOR -->
-    <header class="top-bar">
-        <!-- Reemplaza el src con la ruta real de tu archivo svg cuando lo integres -->
-        <img src="logo blanco.svg" alt="The Chirusa Logo" class="logo">
-        <a href="https://wa.me/5492236684467" class="btn-pedir" target="_blank">PEDIR</a>
-    </header>
+<div class="barra"><div class="wrap">
+  <a href="#" aria-label="the chirusa! inicio"><img src="img/logo.png" alt="the chirusa!"></a>
+  <a class="pill wa" href="#" target="_blank" rel="noopener">Pedir</a>
+</div></div>
 
-    <!-- SECCIÓN HERO -->
-    <section class="hero-section">
-        <div class="hero-subtitle">A LOT OF</div>
-        <h1 class="hero-title">ACTITUD</h1>
-        <div class="hero-images">
-            <!-- Aquí irían las imágenes extraídas (ej. lámpara roja y azul).
-                 Te recomiendo cortarlas de la imagen original sin fondo (PNG transparente)
-                 para que queden igual al diseño. -->
-            <img src="ruta-a-tu-imagen-lampara-roja.png" alt="Lámpara The Gladys Roja">
-            <img src="ruta-a-tu-imagen-lampara-azul.png" alt="Lámpara The Ester Azul">
-        </div>
-    </section>
+<!-- PORTADA -->
+<header class="hero">
+  <div class="mark" aria-hidden="true">ACTITUD</div>
+  <h1><span>A lot of</span>Actitud</h1>
+  <div class="lamps"><img src="img/lamparas.webp" alt="The Gladys, roja, y The Ester, azul" width="1561" height="899"></div>
+  <div class="bub i" aria-hidden="true">A little luz, a lot of actitud<svg viewBox="0 0 30 20"><path d="M2 14C10 4 18 4 27 8M21 3L27 8L20 12"/></svg></div>
+  <div class="bub d" aria-hidden="true">Not just a lamparita<svg viewBox="0 0 30 20"><path d="M2 14C10 4 18 4 27 8M21 3L27 8L20 12"/></svg></div>
+</header>
 
-    <!-- SECCIÓN STARTER PACK -->
-    <section class="starter-pack-section">
-        <h2 class="starter-pack-title">STARTER PACK</h2>
-        <div class="starter-pack-subtitle">¿QUÉ TE LLEVAS A TU CASA?</div>
-    </section>
+<!-- STARTER PACK -->
+<div class="band teal"><h2>Starter pack</h2><small>¿Qué te llevás a tu casa?</small></div>
+<section class="pack"><div class="wrap">
+  <div class="items">
+    <div class="it"><span class="n">1</span><span><b>1 Base iluminada con luz RGB:</b>Elegís entre “The Gladys” y “The Ester”.</span></div>
+    <div class="it"><span class="n">2</span><span><b>2 Carcasas intercambiables:</b>Elegís entre rojo, azul y amarillo. Te aburrís, la cambiás y estrenás lámpara nueva.</span></div>
+    <div class="it"><span class="n">3</span><span><b>1 Soporte imantado para la pared:</b>Por si te aburrís de que esté en el mismo lugar siempre.</span></div>
+    <div class="it"><span class="n">4</span><span><b>Control remoto para tu luz:</b>Luz cálida, luz fría o el color que pinte tu mood de hoy.</span></div>
+  </div>
+  <div class="precio">
+    <p>No te mandamos una caja cualquiera, te mandamos todo lo que necesitás para jubilar a tu lámpara aburrida.</p>
+    <div class="tag">$109.000</div>
+  </div>
+  <div class="cta"><a class="btn wa" href="#" target="_blank" rel="noopener">Quiero mi chirusa</a></div>
+</div></section>
 
-    <div class="features-grid">
-        <div class="feature-item">
-            <div class="feature-number">1</div>
-            <div class="feature-text">
-                <strong>1 Base iluminada con luz RGB:</strong>
-                Elegí entre "The Gladys" y "The Ester".
-            </div>
-        </div>
-        <div class="feature-item">
-            <div class="feature-number">2</div>
-            <div class="feature-text">
-                <strong>2 Carcasas intercambiables:</strong>
-                Elegí entre rojo, azul y amarillo. Te aburrís, le cambiás y estrenás lámpara nueva.
-            </div>
-        </div>
-        <div class="feature-item">
-            <div class="feature-number">3</div>
-            <div class="feature-text">
-                <strong>1 Soporte imantado para la pared:</strong>
-                Por si te aburre de que esté en el mismo lugar siempre.
-            </div>
-        </div>
-        <div class="feature-item">
-            <div class="feature-number">4</div>
-            <div class="feature-text">
-                <strong>Control remoto para tu luz:</strong>
-                Luz cálida, luz fría o el color q te pinte tu mood de hoy.
-            </div>
-        </div>
+<!-- MODELOS -->
+<div class="cards">
+  <div class="card"><img style="object-position:42% 56%" src="img/gladys.jpg" alt="The Gladys sobre un mueble, junto a un tocadiscos" loading="lazy"><h3><small>The</small>Gladys</h3><p>Es la amiga excéntrica que no pide permiso, la que te soluciona un problema mientras se ceba un mate. No le gustan las sutilezas. Es frontal, irónica y pura actitud.</p></div>
+  <div class="card"><img style="object-position:45% 58%" src="img/ester.jpg" alt="The Ester sobre un mueble, junto a una planta" loading="lazy"><h3><small>The</small>Ester</h3><p>Es la mente estratégica, observadora y pragmática. Su humor es seco e irónico. Elige colores lisos, y un minimalismo sofisticado.</p></div>
+</div>
+
+<div class="band ocre"><h2>One way or el otro way</h2></div>
+
+<!-- SIMULADOR -->
+<section class="armar" id="objetos"><div class="wrap">
+  <h2>Probalas a tu manera</h2>
+  <p class="sub">Elegí el modelo, cambiá el color de la carcasa, prendé la luz y separá las piezas.</p>
+  <div class="tabs" id="tabs">
+    <button class="tab" data-m="gladys" aria-pressed="true">The Gladys</button>
+    <button class="tab" data-m="ester" aria-pressed="false">The Ester</button>
+  </div>
+  <div class="sim">
+    <div class="sim-h"><b id="nom"></b> · <span id="col"></span></div>
+    <svg id="esc" viewBox="0 0 400 300" role="img" aria-label="Vista de la lámpara"></svg>
+    <div class="ctl"><span>Carcasa</span><div class="sw" id="sw"></div></div>
+    <div class="ctl">
+      <div class="seg"><button id="luz" aria-pressed="true"></button></div>
+      <div class="seg" id="vistas">
+        <button data-v="frente" aria-pressed="true">Costado</button>
+        <button data-v="atras" aria-pressed="false">Atrás</button>
+        <button data-v="despiece" aria-pressed="false">Despiece</button>
+      </div>
     </div>
+    <p class="nota">Simulador interactivo: cambiá el color de la carcasa, encendé la luz o separá la carcasa de la lámpara.</p>
+  </div>
+</div></section>
 
-    <!-- PRECIO Y CTA -->
-    <div class="price-cta-container">
-        <p>No te mandamos una caja cualquiera, te mandamos todo lo que necesitas para jubilar a tu lámpara aburrida.</p>
-        <div class="price-tag">$109.000</div>
-        <br>
-        <a href="https://wa.me/5492236684467" class="btn-principal" target="_blank">QUIERO MI CHIRUSA</a>
-    </div>
+<div class="band rojo"><h2>Lámparas que se mueren de ganas de tener color</h2></div>
 
+<section class="videos"><div class="wrap">
+  <h2>La lámpara, prendida</h2>
+  <figure class="video-wide">
+    <video src="video-lampara.mp4" poster="video-lampara-poster.jpg" muted loop playsinline autoplay preload="metadata" aria-label="La lámpara Chirusa cambiando de color"></video>
+  </figure>
+</div></section>
+
+<div class="band ocre"><h2 style="color:var(--tinta)">Hacen luz. Y también hacen escena.</h2></div>
+
+<section class="pedir"><div class="wrap">
+  <h2>Pedí la tuya</h2>
+  <p>Escribinos por WhatsApp y te contamos modelos, colores y tiempos.</p>
+  <a class="btn wa" href="#" target="_blank" rel="noopener">Quiero mi chirusa</a>
+</div></section>
+
+<section class="dudas"><div class="wrap">
+  <h2>Dudas</h2>
+  <details><summary>¿Hacen envíos?</summary><p>Completar.</p></details>
+  <details><summary>¿Puedo elegir los colores?</summary><p>Completar.</p></details>
+  <details><summary>¿Cuánto tardan?</summary><p>Completar.</p></details>
+  <details><summary>¿Qué lamparita llevan?</summary><p>Completar.</p></details>
+</div></section>
+
+<div class="wrap"><footer><span>the chirusa! OBJECT[O]S · Mar del Plata</span><a id="ig" target="_blank" rel="noopener">Instagram</a></footer></div>
+
+<script>
+// ---- Completar estos datos ----
+const WA_NUMBER = '5492230000000';     // WhatsApp con código de país
+const IG_USER   = 'tu_cuenta_chirusa'; // usuario de Instagram
+// --------------------------------
+const $ = id => document.getElementById(id);
+document.querySelectorAll('.wa').forEach(a => a.href = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent('Hola Chirusa, quiero mi chirusa!')}`);
+$('ig').href = 'https://instagram.com/' + IG_USER;
+
+// ---- Simulador: vistas por modelo ----
+const COLORES = {rojo:['Rojo','#cd3319'], azul:['Azul','#1f4db0'], amarillo:['Amarillo','#e8a519']};
+const NOMBRES = {gladys:'The Gladys', ester:'The Ester'};
+const S = {m:'gladys', c:'rojo', on:true, v:'frente'};
+const K = '#333';
+const st = `stroke="${K}" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"`;
+const cable = d => `<path d="${d}" fill="none" ${st}/>`;
+const interruptor = (x,y) => `<rect x="${x}" y="${y}" width="18" height="9" rx="4.5" transform="rotate(30 ${x+9} ${y+4})" fill="#f3f3f3" ${st} stroke-width="2"/>`;
+const flecha = d => `<path d="${d}" fill="none" ${st}/>`;
+
+// carcasa de The Gladys: forma en caja de 100x100, se escala
+const shG = (x,y,s,c) => `<path transform="translate(${x} ${y}) scale(${s})" d="M0 100V84C1 76 14 77 22 70C32 61 26 46 40 41C54 36 50 20 62 12C71 7 84 8 100 4V100Z" fill="${c}"/>`;
+// carcasa de The Ester (ancho 210, desde x=95)
+const shE = (dy,c) => `<path transform="translate(0 ${dy})" d="M95 200V104C95 92 106 90 112 102C122 124 142 130 158 118C170 108 178 92 192 92C206 92 214 108 228 120C246 134 268 128 280 104C286 92 305 92 305 104V200Z" fill="${c}"/>`;
+
+function vista(){
+  const c = COLORES[S.c][1], L = S.on ? '#fff1b0' : '#fbf8f1', T = S.on ? '#fffbe3' : '#fff';
+  const glow = (x,y) => S.on ? `<circle cx="${x}" cy="${y}" r="150" fill="url(#g)"/>` : '';
+  const v = S.v;
+  if (S.m === 'gladys'){
+    if (v === 'frente') return glow(195,130) + `<rect x="110" y="45" width="170" height="170" fill="${L}" ${st}/>` + shG(110,45,1.7,c)
+      + cable('M280 192C302 190 320 194 322 206') + interruptor(318,205) + cable('M334 216C350 226 372 226 395 218');
+    if (v === 'despiece') return glow(125,130) + `<rect x="40" y="45" width="170" height="170" fill="${L}" ${st}/>` + shG(185,45,1.7,c)
+      + cable('M355 195C370 193 385 195 396 192');
+    if (v === 'atras') return `<rect x="115" y="45" width="170" height="170" fill="${c}"/><rect x="186" y="160" width="28" height="28" rx="6" fill="#fff" ${st} stroke-width="2"/>`
+      + cable('M200 174V196C203 228 252 232 278 212');
+  }
+  if (v === 'frente') return glow(200,115) + `<path d="M100 60V200H300V60" fill="${L}" ${st}/><ellipse cx="200" cy="60" rx="100" ry="6" fill="${T}" ${st}/>` + shE(0,c)
+    + cable('M305 150C328 148 345 152 346 164') + interruptor(340,164) + cable('M356 176C370 184 385 184 396 180');
+  if (v === 'despiece') return glow(200,75) + `<path d="M100 20V118Q200 128 300 118V20" fill="${L}" ${st}/><ellipse cx="200" cy="20" rx="100" ry="6" fill="${T}" ${st}/>`
+    + flecha('M200 168V138M190 149L200 137L210 149') + shE(85,c) + cable('M305 235C335 232 360 240 396 238');
+  if (v === 'atras') return `<circle cx="200" cy="150" r="125" fill="${c}"/><circle cx="200" cy="204" r="36" fill="none" stroke="#1a1a1a" stroke-width="2"/><rect x="186" y="190" width="28" height="28" rx="5" fill="#fff" ${st} stroke-width="2.5"/>`
+    + cable('M200 218V236C204 254 260 244 340 248');
+}
+
+function dibujar(){
+  $('esc').innerHTML = `<defs><radialGradient id="g"><stop offset="0" stop-color="#ffd23f" stop-opacity=".7"/><stop offset="1" stop-color="#ffd23f" stop-opacity="0"/></radialGradient></defs>` + vista();
+  $('nom').textContent = NOMBRES[S.m];
+  $('col').textContent = COLORES[S.c][0];
+  $('luz').textContent = S.on ? 'Luz ON' : 'Luz OFF';
+  $('luz').setAttribute('aria-pressed', S.on);
+  document.querySelectorAll('#tabs button').forEach(b => b.setAttribute('aria-pressed', b.dataset.m === S.m));
+  document.querySelectorAll('#sw button').forEach(b => b.setAttribute('aria-pressed', b.dataset.c === S.c));
+  document.querySelectorAll('#vistas button').forEach(b => b.setAttribute('aria-pressed', b.dataset.v === S.v));
+}
+$('sw').innerHTML = Object.entries(COLORES).map(([k,v]) => `<button data-c="${k}" style="background:${v[1]}" aria-label="Carcasa ${v[0]}" aria-pressed="false"></button>`).join('');
+$('tabs').onclick   = e => { const b = e.target.closest('button'); if (b){ S.m = b.dataset.m; dibujar(); } };
+$('sw').onclick     = e => { const b = e.target.closest('button'); if (b){ S.c = b.dataset.c; dibujar(); } };
+$('vistas').onclick = e => { const b = e.target.closest('button'); if (b){ S.v = b.dataset.v; dibujar(); } };
+$('luz').onclick    = () => { S.on = !S.on; dibujar(); };
+dibujar();
+</script>
 </body>
 </html>
