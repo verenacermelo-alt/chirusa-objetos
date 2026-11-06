@@ -33,7 +33,8 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var
 .barra img{display:block;height:clamp(2rem,7vw,3rem);width:auto}
 .pill{display:inline-flex;align-items:center;min-height:40px;background:var(--rojo);color:var(--crema);font:800 .85rem 'Agrandir',sans-serif;text-transform:uppercase;text-decoration:none;padding:6px 22px;border-radius:30px}
 
-/* hero */
+.portada img{display:block;width:100%;height:auto}
+/* hero (sin uso) */
 .hero{position:relative;background:var(--crema);overflow:hidden;text-align:center;padding-top:clamp(1.2rem,5vw,3rem)}
 .mark{position:absolute;top:0;left:50%;transform:translateX(-50%);font:800 clamp(5rem,26vw,17rem)/.9 'Agrandir',sans-serif;color:#f7e4d4;white-space:nowrap;z-index:0;user-select:none}
 .hero h1{position:relative;z-index:1;color:var(--rojo);font-size:clamp(2.4rem,12.5vw,8.5rem);line-height:.85;white-space:nowrap;text-transform:uppercase}
@@ -118,17 +119,13 @@ footer{padding:1.5rem 0 2rem;display:flex;justify-content:space-between;flex-wra
   <a class="pill wa" href="#" target="_blank" rel="noopener">Pedir</a>
 </div></div>
 
-<!-- PORTADA -->
-<header class="hero">
-  <div class="mark" aria-hidden="true">ACTITUD</div>
-  <h1><span>A lot of</span>Actitud</h1>
-  <div class="lamps"><img src="img/lamparas.webp" alt="The Gladys, roja, y The Ester, azul" width="1561" height="899"></div>
-  <div class="bub i" aria-hidden="true">A little luz, a lot of actitud<svg viewBox="0 0 30 20"><path d="M2 14C10 4 18 4 27 8M21 3L27 8L20 12"/></svg></div>
-  <div class="bub d" aria-hidden="true">Not just a lamparita<svg viewBox="0 0 30 20"><path d="M2 14C10 4 18 4 27 8M21 3L27 8L20 12"/></svg></div>
+<!-- PORTADA: imagen completa (incluye la banda "Starter pack") -->
+<header class="portada">
+  <h1 class="sr">the chirusa! OBJECT[O]S: a little luz, a lot of actitud</h1>
+  <img src="img/portada.jpg" width="1600" height="874" alt="The Gladys y The Ester. A lot of actitud. Starter pack: ¿qué te llevás a tu casa?">
 </header>
 
 <!-- STARTER PACK -->
-<div class="band teal"><h2>Starter pack</h2><small>¿Qué te llevás a tu casa?</small></div>
 <section class="pack"><div class="wrap">
   <div class="items">
     <div class="it"><span class="n">1</span><span><b>1 Base iluminada con luz RGB:</b>Elegís entre “The Gladys” y “The Ester”.</span></div>
