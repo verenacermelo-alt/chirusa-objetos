@@ -7,138 +7,146 @@
 <meta name="description" content="Lámparas de diseño con color, hechas a mano en Mar del Plata.">
 <meta property="og:title" content="the chirusa! OBJECT[O]S">
 <meta property="og:description" content="Lámparas de diseño con color.">
-<meta property="og:image" content="logo-chirusa.jpg">
+<meta property="og:image" content="bannerprincipal.jpg">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23d63a1f'/%3E%3Ccircle cx='50' cy='52' r='20' fill='%23e8b012'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100,800;125,800&family=Caveat:wght@600&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100,800;125,800&family=Inter:wght@400;600&display=swap" rel="stylesheet">
 <style>
-:root{--crema:#efe9dc;--rojo:#d63a1f;--azul:#1f4db0;--amarillo:#e8b012;--tinta:#1d1a17}
+:root{--crema:#efe9dc;--rojo:#d63a1f;--azul:#1f4db0;--amarillo:#e8b012;--tinta:#1d1a17;--pad:clamp(1rem,4vw,1.5rem)}
 *{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;font-family:'Inter',system-ui,sans-serif;background:var(--crema);color:var(--tinta);line-height:1.5}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;font-family:'Inter',system-ui,sans-serif;background:var(--crema);color:var(--tinta);line-height:1.5;overflow-x:hidden}
+img,video,svg{max-width:100%}
 a{color:inherit}
-.wrap{max-width:1100px;margin:0 auto;padding:0 1.5rem}
-h1,h2,h3{font-family:'Archivo',sans-serif;font-weight:800;font-stretch:112%;text-transform:uppercase;line-height:1.02;letter-spacing:-.01em;margin:0 0 1.25rem}
-h2{font-size:clamp(2rem,5.5vw,3.8rem)}
-p{max-width:34em;margin:0 0 1rem;font-size:1.1rem}
-.btn{display:inline-block;font:800 1rem 'Archivo',sans-serif;text-transform:uppercase;letter-spacing:.02em;padding:14px 30px;border-radius:40px;border:2px solid currentColor;text-decoration:none;cursor:pointer;background:transparent;color:inherit}
+.wrap{max-width:1100px;margin:0 auto;padding:0 var(--pad)}
+h1,h2,h3{font-family:'Archivo',sans-serif;font-weight:800;font-stretch:112%;text-transform:uppercase;line-height:1.02;letter-spacing:-.01em;margin:0 0 1rem;overflow-wrap:anywhere}
+h2{font-size:clamp(1.8rem,6vw,3.8rem)}
+p{max-width:34em;margin:0 0 1rem;font-size:clamp(1rem,2.6vw,1.1rem)}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;font:800 1rem 'Archivo',sans-serif;text-transform:uppercase;letter-spacing:.02em;padding:12px 28px;border-radius:40px;border:2px solid currentColor;text-decoration:none;cursor:pointer;background:transparent;color:inherit;text-align:center}
 .btn.fill{background:var(--amarillo);border-color:var(--amarillo);color:var(--tinta)}
 a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var(--azul);outline-offset:3px}
+.sr{position:absolute;left:-9999px}
 
-/* ---------- 1. PRESENTACIÓN ---------- */
-nav{display:flex;justify-content:space-between;align-items:center;padding:1.25rem 0}
-.logo img{display:block;height:3.2rem;width:auto;mix-blend-mode:multiply}
-.nav-r{font:800 .95rem 'Archivo',sans-serif;text-transform:uppercase;text-decoration:none;border:2px solid var(--tinta);border-radius:40px;padding:8px 22px}
-.ilus{display:grid;grid-template-columns:1fr 1fr;gap:2rem;padding:1rem 0 3rem}
-.ilus svg{width:100%;height:auto;display:block;overflow:visible}
-.ilus .t{font:600 19px 'Caveat',cursive;fill:var(--tinta);text-anchor:middle}
-.titulo{background:var(--rojo);color:var(--crema);padding:4.5rem 0}
-.titulo h1{font-size:clamp(2.4rem,8vw,6rem);max-width:10em;margin:0}
+/* ---------- 1. PORTADA: banner ---------- */
+nav{display:flex;justify-content:space-between;align-items:center;padding:.75rem 0}
+.logo img{display:block;height:clamp(2.2rem,8vw,3.2rem);width:auto;mix-blend-mode:multiply}
+.nav-r{min-height:44px;display:inline-flex;align-items:center;font:800 .9rem 'Archivo',sans-serif;text-transform:uppercase;text-decoration:none;border:2px solid var(--tinta);border-radius:40px;padding:6px 20px}
+.banner{display:block;width:100%;height:auto;min-height:48vw;background:var(--rojo);object-fit:cover}
 
-/* ---------- 2. SIMULADOR ---------- */
-.armar{padding:5rem 0}
-.tabs{display:flex;gap:.75rem;margin:1.5rem 0}
-.tab{font:800 1rem 'Archivo',sans-serif;text-transform:uppercase;padding:10px 24px;border-radius:40px;border:2px solid var(--tinta);background:transparent;color:var(--tinta);cursor:pointer}
+/* ---------- 2. SIMULADOR + PACK ---------- */
+.armar{padding:clamp(3rem,9vw,5rem) 0}
+.tabs{display:flex;flex-wrap:wrap;gap:.6rem;margin:1.25rem 0}
+.tab{min-height:44px;font:800 .95rem 'Archivo',sans-serif;text-transform:uppercase;padding:8px 22px;border-radius:40px;border:2px solid var(--tinta);background:transparent;color:var(--tinta);cursor:pointer}
 .tab[aria-pressed=true]{background:var(--tinta);color:var(--crema)}
-.sim{background:#faf6ec;border:2px solid var(--tinta);border-radius:28px;padding:1.5rem;max-width:640px}
-.sim-h{display:flex;flex-wrap:wrap;gap:.5rem 1rem;align-items:baseline;margin-bottom:1rem}
-.sim-h b{font:800 1rem 'Archivo',sans-serif;text-transform:uppercase}
-.sim svg{width:100%;height:auto;display:block;border-radius:18px}
-.ctl{display:flex;flex-wrap:wrap;gap:.75rem 1.5rem;align-items:center;margin-top:1.25rem}
+.grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:1.5rem;align-items:start}
+.sim{background:#faf6ec;border:2px solid var(--tinta);border-radius:clamp(18px,4vw,28px);padding:clamp(1rem,3vw,1.5rem)}
+.sim-h{display:flex;flex-wrap:wrap;gap:.25rem 1rem;align-items:baseline;margin-bottom:.75rem}
+.sim-h b{font:800 .95rem 'Archivo',sans-serif;text-transform:uppercase}
+#esc{width:100%;height:auto;display:block;border-radius:16px}
+#dg{transition:transform .6s ease}
+#lbl text{font:600 14px 'Inter',sans-serif;fill:var(--tinta)}
+.ctl{display:flex;flex-wrap:wrap;gap:.6rem 1.25rem;align-items:center;margin-top:1rem}
 .ctl>span{font-weight:600;font-size:.9rem}
-.sw{display:flex;gap:.6rem}
-.sw button{width:34px;height:34px;border-radius:50%;border:3px solid transparent;cursor:pointer;box-shadow:0 0 0 2px var(--tinta) inset}
-.sw button[aria-pressed=true]{border-color:var(--crema);outline:3px solid var(--tinta)}
-.seg{display:flex;gap:.5rem}
-.seg button{font:600 .95rem 'Inter',sans-serif;padding:9px 18px;border-radius:12px;border:2px solid var(--tinta);background:transparent;color:var(--tinta);cursor:pointer}
+.sw{display:flex;gap:.75rem}
+.sw button{width:40px;height:40px;border-radius:50%;border:3px solid transparent;cursor:pointer;box-shadow:0 0 0 2px var(--tinta) inset}
+.sw button[aria-pressed=true]{border-color:#faf6ec;outline:3px solid var(--tinta)}
+.seg{display:flex;flex-wrap:wrap;gap:.5rem}
+.seg button{min-height:44px;font:600 .95rem 'Inter',sans-serif;padding:8px 18px;border-radius:12px;border:2px solid var(--tinta);background:transparent;color:var(--tinta);cursor:pointer}
 .seg button[aria-pressed=true]{background:var(--amarillo)}
-.nota{font-size:.9rem;font-style:italic;margin-top:1rem}
+.nota{font-size:.85rem;font-style:italic;margin:1rem 0 0}
+
+/* placa del pack */
+.pack{background:var(--tinta);color:#fff;border-radius:clamp(18px,4vw,28px);padding:clamp(1.25rem,4vw,1.75rem)}
+.pack-h{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:.5rem 1rem;padding-bottom:1rem;border-bottom:1px solid #ffffff22}
+.pack h3{font-size:clamp(1.3rem,4vw,1.6rem);margin:0;text-transform:none;font-stretch:100%}
+.pack .sub{color:#bdb6aa;font-size:.9rem;margin:.25rem 0 0}
+.precio{font:800 clamp(1.6rem,6vw,2.2rem)/1 'Archivo',sans-serif;color:var(--amarillo);white-space:nowrap}
+.pack ul{list-style:none;margin:1.1rem 0 1.4rem;padding:0;display:grid;gap:.7rem}
+.pack li{display:flex;gap:.7rem;font-size:.95rem;color:#e6e0d4}
+.pack li:before{content:"✓";color:var(--amarillo);font-weight:800}
+.pack .btn{width:100%;background:#fff;border-color:#fff;color:var(--tinta);border-radius:16px;min-height:54px}
 
 /* ---------- FRASES ---------- */
-.frase{padding:5rem 0}
+.frase{padding:clamp(3rem,10vw,5rem) 0}
 .frase h2{max-width:12em;margin:0}
 .f-rojo{background:var(--rojo);color:var(--crema)}
 .f-azul{background:var(--azul);color:var(--crema)}
 .f-amarillo{background:var(--amarillo);color:var(--tinta)}
 
 /* ---------- VIDEO ---------- */
-.videos{padding:5rem 0}
-.video-wide{border-radius:28px;overflow:hidden;margin:2rem 0 0;background:var(--tinta)}
+.videos{padding:clamp(3rem,9vw,5rem) 0}
+.video-wide{border-radius:clamp(18px,4vw,28px);overflow:hidden;margin:1.5rem 0 0;background:var(--tinta)}
 .video-wide video{width:100%;display:block;aspect-ratio:16/9;object-fit:cover}
 
 /* ---------- PEDIR + DUDAS ---------- */
-.pedir{background:var(--azul);color:var(--crema);padding:5rem 0}
-.pedir .logo-pie{height:4rem;width:auto;display:block;margin-bottom:2rem}
-.dudas{padding:4rem 0}
+.pedir{background:var(--azul);color:var(--crema);padding:clamp(3rem,9vw,5rem) 0}
+.pedir .logo-pie{height:3.5rem;width:auto;display:block;margin-bottom:1.5rem}
+.dudas{padding:clamp(2.5rem,8vw,4rem) 0}
 details{border-top:2px solid var(--tinta);padding:1rem 0}
 details:last-of-type{border-bottom:2px solid var(--tinta)}
-summary{font:800 1.1rem 'Archivo',sans-serif;text-transform:uppercase;cursor:pointer}
+summary{font:800 1.05rem 'Archivo',sans-serif;text-transform:uppercase;cursor:pointer;min-height:32px}
 details p{margin:.8rem 0 0}
 footer{padding:2rem 0;display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;font-weight:600}
-@media (max-width:760px){.ilus{grid-template-columns:1fr}.logo img{height:2.6rem}}
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+@media (max-width:900px){.grid{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:520px){.tab{flex:1 1 auto}.seg button{flex:1 1 auto}.pedir .btn{width:100%}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}#dg{transition:none}}
 </style>
 </head>
 <body>
 
-<!-- 1. PRESENTACIÓN -->
+<!-- 1. PORTADA: reemplazá la imagen subiendo bannerprincipal.jpg junto a este archivo -->
 <header>
   <div class="wrap">
     <nav>
       <a class="logo" href="#" aria-label="the chirusa! OBJECT[O]S, inicio"><img src="logo-chirusa.jpg" alt="the chirusa! OBJECT[O]S"></a>
       <a class="nav-r" href="#pedir">Pedir</a>
     </nav>
-    <div class="ilus">
-      <!-- THE GLADYS -->
-      <svg viewBox="0 0 300 300" role="img" aria-label="Ilustración de The Gladys: A little luz, a lot of actitud">
-        <polygon points="45,150 115,35 185,150" fill="#e8b012"/>
-        <rect x="95" y="65" width="125" height="125" fill="none" stroke="#1d1a17" stroke-width="2"/>
-        <path d="M140 205C128 175 168 165 152 135C142 110 172 100 186 106C192 84 216 86 222 74V205Z" fill="#d63a1f"/>
-        <path d="M222 190C250 188 255 214 285 206" fill="none" stroke="#1d1a17" stroke-width="2"/>
-        <path d="M150 205C160 232 120 222 100 232" fill="none" stroke="#1d1a17" stroke-width="2"/>
-        <ellipse cx="130" cy="252" rx="108" ry="30" fill="#efe9dc" stroke="#1d1a17" stroke-width="2" transform="rotate(-3 130 252)"/>
-        <text class="t" x="130" y="248">A LITTLE LUZ,</text><text class="t" x="130" y="270">A LOT OF ACTITUD</text>
-      </svg>
-      <!-- THE ESTER -->
-      <svg viewBox="0 0 300 300" role="img" aria-label="Ilustración de The Ester: Not just a lamparita">
-        <polygon points="90,25 210,25 150,95" fill="#e8b012"/>
-        <circle cx="150" cy="110" r="70" fill="none" stroke="#1d1a17" stroke-width="2"/>
-        <path d="M80 112C100 96 110 128 130 112C150 96 160 128 180 112C200 96 210 128 220 112A70 70 0 0 1 80 112Z" fill="#1f4db0"/>
-        <path d="M80 130C40 120 20 165 5 150" fill="none" stroke="#1d1a17" stroke-width="2"/>
-        <path d="M185 178C215 200 240 205 262 215" fill="none" stroke="#1d1a17" stroke-width="2"/>
-        <ellipse cx="170" cy="252" rx="100" ry="30" fill="#efe9dc" stroke="#1d1a17" stroke-width="2" transform="rotate(-3 170 252)"/>
-        <text class="t" x="170" y="248">NOT JUST</text><text class="t" x="170" y="270">A LAMPARITA</text>
-      </svg>
-    </div>
   </div>
-  <div class="titulo"><div class="wrap"><h1>It's just a cuestión de actitud</h1></div></div>
+  <h1 class="sr">the chirusa! OBJECT[O]S: lámparas de diseño con color</h1>
+  <img class="banner" src="bannerprincipal.jpg" alt="The Gladys y The Ester, lámparas de diseño de the chirusa!">
 </header>
 
-<!-- 2. SIMULADOR INTERACTIVO -->
+<!-- 2. SIMULADOR + PACK -->
 <section class="armar" id="objetos">
   <div class="wrap">
     <h2>Probala a tu manera</h2>
-    <p>Elegí el modelo, cambiá el color de la carcasa, prendé la luz y fijate cómo queda en la mesa o en la pared.</p>
+    <p>Elegí el modelo, cambiá el color de la carcasa, prendé la luz y separá las piezas.</p>
     <div class="tabs" id="tabs">
       <button class="tab" data-m="gladys" aria-pressed="true">The Gladys</button>
       <button class="tab" data-m="ester" aria-pressed="false">The Ester</button>
     </div>
-    <div class="sim">
-      <div class="sim-h"><b id="nom"></b><span id="col"></span></div>
-      <svg id="esc" viewBox="0 0 400 320" role="img" aria-label="Simulador de la lámpara"></svg>
-      <div class="ctl">
-        <span>Carcasa</span>
-        <div class="sw" id="sw"></div>
+    <div class="grid">
+      <div class="sim">
+        <div class="sim-h"><b id="nom"></b><span id="col"></span></div>
+        <svg id="esc" viewBox="0 0 400 400" role="img" aria-label="Simulador de la lámpara">
+          <defs><radialGradient id="g"><stop offset="0" stop-color="#ffd23f" stop-opacity=".8"/><stop offset="1" stop-color="#ffd23f" stop-opacity="0"/></radialGradient></defs>
+          <rect width="400" height="400" fill="#f3ead6"/>
+          <rect y="332" width="400" height="68" fill="#b9824f"/>
+          <ellipse cx="200" cy="334" rx="110" ry="9" fill="#000" opacity=".22"/>
+          <g transform="translate(0,70)">
+            <g id="dg"><circle id="gl" r="175" fill="url(#g)"/><g id="dif"></g></g>
+            <g id="shell"></g>
+            <g id="lbl"></g>
+          </g>
+        </svg>
+        <div class="ctl"><span>Carcasa</span><div class="sw" id="sw"></div></div>
+        <div class="ctl"><div class="seg" id="acc">
+          <button id="luz" aria-pressed="true"></button>
+          <button id="desp" aria-pressed="false">Despiece</button>
+        </div></div>
+        <p class="nota">Simulador interactivo: cambiá el color de la carcasa, encendé la luz o separá la carcasa de la lámpara.</p>
       </div>
-      <div class="ctl">
-        <div class="seg"><button id="luz" aria-pressed="true"></button></div>
-        <div class="seg" id="pos">
-          <button data-p="mesa" aria-pressed="true">En mesa</button>
-          <button data-p="pared" aria-pressed="false">En pared</button>
+
+      <aside class="pack" aria-labelledby="pk-t">
+        <div class="pack-h">
+          <div><h3 id="pk-t"></h3><p class="sub">Todo lo que recibís en tu caja de diseño:</p></div>
+          <div class="precio" id="pk-p"></div>
         </div>
-      </div>
-      <p class="nota">Simulador interactivo: probá cambiar el color de la carcasa, encender la luz o montarla en la pared con imanes.</p>
+        <ul id="pk-l"></ul>
+        <a class="btn" id="pk-b" target="_blank" rel="noopener"></a>
+      </aside>
     </div>
   </div>
 </section>
@@ -198,51 +206,68 @@ const WA_NUMBER = '5492230000000';     // WhatsApp con código de país
 const IG_USER   = 'tu_cuenta_chirusa'; // usuario de Instagram
 // --------------------------------
 const $ = id => document.getElementById(id);
-$('wa').href = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent('Hola Chirusa, quiero consultar por una lámpara.')}`;
+const wa = t => `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(t)}`;
+$('wa').href = wa('Hola Chirusa, quiero consultar por una lámpara.');
 $('ig').href = 'https://instagram.com/' + IG_USER;
 
-// ---- Simulador ----
+// ---- Datos ----
 const COLORES = {rojo:['Rojo','#d63a1f'], azul:['Azul','#1f4db0'], amarillo:['Amarillo mostaza','#e8b012']};
 const MODELOS = {gladys:'The Gladys · Cúbica', ester:'The Ester · Cilíndrica'};
-const S = {m:'gladys', c:'rojo', on:true, p:'mesa'};
+const PACKS = {
+  ester:{t:'Pack The Ester', p:'$109.000 ARS', items:[
+    '1× Lámpara The Ester con luz RGB de 3W 5V, con cable USB',
+    '2× <b>Carcasa a elección</b>',
+    '1× Soporte magnético para pared',
+    '1× Control remoto RGB']},
+  gladys:{t:'Pack The Gladys', p:'Completar', items:['Completar']}
+};
+const S = {m:'gladys', c:'rojo', on:true, d:false};
 
-function lampara(){
-  const sh = COLORES[S.c][1], on = S.on;
-  if (S.m === 'ester'){
-    return `<path d="M105 120V230A95 26 0 0 0 295 230V120Z" fill="${on?'#fff1b0':'#f4efe4'}"/>
-      <ellipse cx="200" cy="120" rx="95" ry="26" fill="${on?'#fffbe3':'#fffdf8'}"/>
-      <path d="M105 178C125 178 128 150 150 150C175 150 170 188 195 188C222 188 214 142 240 142C266 142 266 178 295 178V230A95 26 0 0 1 105 230Z" fill="${sh}"/>`;
-  }
+// ---- Piezas: difusor (lo que se enciende) y carcasa ----
+function difusor(){
+  const on = S.on;
+  if (S.m === 'ester') return `<path d="M105 120V230A95 26 0 0 0 295 230V120Z" fill="${on?'#fff1b0':'#f4efe4'}"/>
+    <ellipse cx="200" cy="120" rx="95" ry="26" fill="${on?'#fffbe3':'#fffdf8'}"/>`;
   return `<polygon points="250,120 290,92 290,232 250,260" fill="${on?'#ffe48a':'#e3dccd'}"/>
     <polygon points="110,120 150,92 290,92 250,120" fill="${on?'#fffbe3':'#fffdf8'}"/>
-    <rect x="110" y="120" width="140" height="140" fill="${on?'#fff3bd':'#f4efe4'}"/>
-    <path d="M110 120H172C196 134 160 164 180 190C198 214 166 236 190 260H110Z" fill="${sh}"/>`;
+    <rect x="110" y="120" width="140" height="140" fill="${on?'#fff3bd':'#f4efe4'}"/>`;
+}
+function carcasa(){
+  const sh = COLORES[S.c][1];
+  if (S.m === 'ester') return `<path d="M105 172C118 172 120 138 142 138C166 138 160 188 186 188C212 188 208 128 234 128C260 128 262 176 295 172V230A95 26 0 0 1 105 230Z" fill="${sh}"/>`;
+  return `<path d="M110 120H176C204 136 162 166 184 192C204 216 164 236 192 260H110Z" fill="${sh}"/>`;
 }
 
 function dibujar(){
-  const pared = S.p === 'pared', ester = S.m === 'ester';
-  const cx = ester ? 200 : 195, cy = ester ? 165 : 175;
-  let o = `<defs><radialGradient id="g"><stop offset="0" stop-color="#ffd23f" stop-opacity=".75"/><stop offset="1" stop-color="#ffd23f" stop-opacity="0"/></radialGradient></defs>`;
-  o += `<rect width="400" height="320" fill="${pared?'#e9dfca':'#f3ead6'}"/>`;
-  if (!pared) o += `<rect y="258" width="400" height="62" fill="#b9824f"/><ellipse cx="200" cy="260" rx="105" ry="9" fill="#000" opacity=".25"/>`;
-  if (S.on) o += `<circle cx="${cx}" cy="${cy-(pared?25:0)}" r="${pared?190:165}" fill="url(#g)"/>`;
-  if (pared) o += `<rect x="40" y="40" width="1" height="1" fill="none"/><g transform="translate(0,-25)" style="filter:drop-shadow(8px 10px 7px rgba(0,0,0,.28))">${lampara()}</g>`;
-  else o += lampara();
-  $('esc').innerHTML = o;
+  const ester = S.m === 'ester';
+  $('dif').innerHTML = difusor();
+  $('shell').innerHTML = carcasa();
+  const gl = $('gl');
+  gl.setAttribute('cx', ester ? 200 : 195);
+  gl.setAttribute('cy', ester ? 170 : 176);
+  gl.style.opacity = S.on ? 1 : 0;
+  $('dg').style.transform = `translateY(${S.d ? -150 : 0}px)`;
+  $('lbl').innerHTML = S.d ? `<text x="305" y="30">Lámpara</text><text x="305" y="205">Carcasa</text>` : '';
   $('nom').textContent = MODELOS[S.m];
   $('col').textContent = COLORES[S.c][0];
   $('luz').textContent = S.on ? 'Luz ON' : 'Luz OFF';
   $('luz').setAttribute('aria-pressed', S.on);
+  $('desp').setAttribute('aria-pressed', S.d);
   document.querySelectorAll('#tabs button').forEach(b => b.setAttribute('aria-pressed', b.dataset.m === S.m));
   document.querySelectorAll('#sw button').forEach(b => b.setAttribute('aria-pressed', b.dataset.c === S.c));
-  document.querySelectorAll('#pos button').forEach(b => b.setAttribute('aria-pressed', b.dataset.p === S.p));
+  const k = PACKS[S.m];
+  $('pk-t').textContent = k.t;
+  $('pk-p').textContent = k.p;
+  $('pk-l').innerHTML = k.items.map(i => `<li><span>${i}</span></li>`).join('');
+  $('pk-b').textContent = S.m === 'ester' ? 'Pedir pack por WhatsApp · $109.000 ARS' : 'Consultar por WhatsApp';
+  $('pk-b').href = wa(`Hola Chirusa, quiero el ${k.t}.`);
 }
 
 $('sw').innerHTML = Object.entries(COLORES).map(([k,v]) => `<button data-c="${k}" style="background:${v[1]}" aria-label="Carcasa ${v[0]}" aria-pressed="false"></button>`).join('');
 $('tabs').onclick = e => { const b = e.target.closest('button'); if (b){ S.m = b.dataset.m; dibujar(); } };
 $('sw').onclick   = e => { const b = e.target.closest('button'); if (b){ S.c = b.dataset.c; dibujar(); } };
-$('pos').onclick  = e => { const b = e.target.closest('button'); if (b){ S.p = b.dataset.p; dibujar(); } };
 $('luz').onclick  = () => { S.on = !S.on; dibujar(); };
+$('desp').onclick = () => { S.d = !S.d; dibujar(); };
 dibujar();
 </script>
 </body>
